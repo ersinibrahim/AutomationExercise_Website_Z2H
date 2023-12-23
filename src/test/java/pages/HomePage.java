@@ -19,10 +19,22 @@ public class HomePage extends Parent {
     @FindBy(xpath = "//a[@data-product-id='1']")
     public WebElement product1_AddToCard_button;
 
-    public WebElement product1_preis = product1_AddToCard_button.findElement(By.xpath("./..>h2"));
+  //  public WebElement product1_preis = product1_AddToCard_button.findElement(By.xpath("./..>h2"));
 
-    //@FindBy(xpath = "//a[@data-product-id='1']/parent::div>h2")
-    //public WebElement product1_preis;
+    @FindBy(xpath = "//a[@data-product-id='1']/parent::div>h2")
+    public WebElement product1_price;
+
+    @FindBy(css = "button[class='btn btn-success close-modal btn-block']")
+    public WebElement continueShopping_button;
+
+    @FindBy(xpath = "//a[@data-product-id='2']")
+    public WebElement product2_AddToCard_button;
+
+    @FindBy(xpath = "//a[@data-product-id='2']/parent::div>h2")
+    public WebElement product2_price;
+
+    @FindBy(css = "p[class='text-center']>a[href='/view_cart']")
+    public WebElement view_cart_button;
 
 
 }

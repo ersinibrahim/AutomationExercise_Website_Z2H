@@ -1,10 +1,12 @@
 package utilities;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.sql.DriverManager;
 
 public class BaseDriver {
 
@@ -14,14 +16,14 @@ public class BaseDriver {
     public static WebDriver getDriver() {
 
         if (threadBrowserName.get() == null) {
-            threadBrowserName.set("firefox");
+            threadBrowserName.set("chrome");
         }
 
         if (threadDriver.get() == null) {
 
             switch (threadBrowserName.get()) {
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+
                     if (!runningFromIntelliJ()){
 
                         ChromeOptions options= new ChromeOptions();
@@ -33,7 +35,7 @@ public class BaseDriver {
                     }
                     break;
                 case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
+
                     threadDriver.set(new FirefoxDriver());
                     break;
             }

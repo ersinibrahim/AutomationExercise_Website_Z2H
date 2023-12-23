@@ -20,7 +20,7 @@ public class EnterSteps {
     @Given("^Navigate to Automation Exercise website$")
     public void navigateToAutomationExerciseWebsite() {
 
-        driver.get("http://automationexercise.com");
+        driver.get("https://automationexercise.com");
         driver.manage().window().maximize();
         Assert.assertTrue(driver.getCurrentUrl().contains("automationexercise"));
 
@@ -34,9 +34,18 @@ public class EnterSteps {
         homePage.clickFunction(homePage.products_button);
         Assert.assertTrue(driver.getCurrentUrl().contains("products"));
 
-        String text=homePage.product1_preis.getText();
+        String price1=homePage.product1_price.getText();
 
-        System.out.println("text = " + text);
+        System.out.println("text = " + price1);
+
+        homePage.clickFunction(homePage.product1_AddToCard_button);
+
+        homePage.clickFunction(homePage.continueShopping_button);
+
+        String price2=homePage.product2_price.getText();
+
+        homePage.clickFunction(homePage.product2_AddToCard_button);
+        homePage.clickFunction(homePage.view_cart_button);
     }
 
 

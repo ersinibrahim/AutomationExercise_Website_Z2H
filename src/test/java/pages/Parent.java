@@ -19,7 +19,7 @@ public class Parent {
     }
 
     public void waitUntilVisible(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(BaseDriver.getDriver(), Duration.ofSeconds(10000));
+        WebDriverWait wait = new WebDriverWait(BaseDriver.getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -29,7 +29,7 @@ public class Parent {
     }
 
     public void waitUntilClickable(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(BaseDriver.getDriver(), Duration.ofSeconds(10000));
+        WebDriverWait wait = new WebDriverWait(BaseDriver.getDriver(), 10);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
